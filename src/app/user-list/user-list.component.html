@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-8">
+    <h3>Users</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+           <!--
+            FELADAT!
+            1. A következő 5 fejléc cellára állítsd be az
+              onColumnSelect eseménykezelőt kattintás esetén.
+            2. Minden metódusnak string-ként add át az oszlophoz
+              tartozó kulcsot, pl.: 'id' vagy 'email'.
+           -->
+           <th>#</th>
+           <th>Name</th>
+           <th>Email</th>
+           <th>Address</th>
+           <th>Active</th>
+          <th>show</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--
+          FELADAT!
+          Egészítsd ki ezzel az *ngFor attribútum értékét
+          (függőleges vonallal kezdődik, az is kell):
+             | filter:phraseString:'name' | sorter:columnKey
+         -->
+         <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.address }}</td>
+          <td>{{ user.active }}</td>
+          <td>
+            <button (click)="onSelectUser(user)" class="btn btn-info">
+              <i class="fa fa-eye"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-4 pt-5">
+    <app-user-detail [user]="currentUser" (delUser)="onDeleteUser($event)"></app-user-detail>
+  </div>
+</div>
