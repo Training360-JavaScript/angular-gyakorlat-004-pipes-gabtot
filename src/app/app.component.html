@@ -26,7 +26,7 @@
         Állítsd be az onChangePhrase($event) metódust az input elem
         keyup eseményére.
        -->
-       <input class="form-control mr-sm-2" type="text" placeholder="Search">
+       <input (keyup)="onChangePhrase($event)" class="form-control mr-sm-2" type="text" placeholder="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
@@ -38,6 +38,6 @@
     Add át property-binding segítségével a phrase változót
     a component phraseString tulajdonságának.
     -->
-    <app-user-list [users]="userList" (delUser)="onDeleteUser($event)"></app-user-list>
+  <app-user-list [phraseString]="phrase" [users]="userList" (delUser)="onDeleteUser($event)"></app-user-list>
 </div>
 
