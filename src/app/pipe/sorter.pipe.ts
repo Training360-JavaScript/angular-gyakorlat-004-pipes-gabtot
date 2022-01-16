@@ -11,7 +11,7 @@ export class SorterPipe implements PipeTransform {
    * @param key {string} - az objektumkulcs, amely alapján rendez
    * @returns {any[]} - a kulcs alapján rendezett tömb
    */
-  transform(value: [], key: string): any[] {
+  transform(value: any[], key: string): any[] {
     // A KÖVETKEZŐ SORT TÁVOLÍTSD EL!!!
 
     /**
@@ -40,7 +40,7 @@ export class SorterPipe implements PipeTransform {
         :
       [ a[key], b[key] ]
         .map( s => s.toString().toLowerCase() )
-        .reduce( (a: string, b:string) : number => a.localeCompare(b) )
+        .reduce( (a, b) => a.localeCompare(b) )
     );
   }
 
